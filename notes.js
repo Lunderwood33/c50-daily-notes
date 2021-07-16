@@ -28,13 +28,29 @@ const newNote = {
 }
 dailyNotes.push(newNote)
 
-const searchTerm = "Good"
-    
-    for (const note of dailyNotes) {
-        if (note.feeling === "Good")
-        console.log(note)
-    }
 
+const addingNote = {
+    subject: "adding notes to array and generating ID",
+        date: "07/16/2021",
+        feeling: "Iffy",
+        timeSpent: 30
+}
+const addNoteToInventory = (noteObject) => {
+    const lastIndex = dailyNotes.length - 1
+    const currentLastNote = dailyNotes[lastIndex]
+    const maxId = currentLastNote.id
+    const idForNewNote = maxId + 1
+
+    noteObject.id = idForNewNote
+    dailyNotes.push(noteObject)
+}
+
+addNoteToInventory(addingNote) 
+    for (const note of dailyNotes) {
+        console.log(note.id)
+        
+    }
+console.log(dailyNotes)
 
 
     
